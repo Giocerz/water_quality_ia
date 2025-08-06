@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>272</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: white;
+font: 11pt Poppins;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QPushButton" name="backBtn">
+    <property name="geometry">
+     <rect>
+      <x>435</x>
+      <y>2</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">	height: 40px;
+	border-radius: 20px;
+	border: 1px solid #00007f;
+	background-color: white;
+	color: #00007f;
+	font-weight: 500;
+	font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>431</width>
+      <height>272</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>431</width>
+       <height>272</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QSlider" name="verticalSlider">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>52</y>
+      <width>31</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:vertical{ 
+    background-color: rgb(234, 234, 234);
+    width: 30px;
+    border-radius: 10px;
+}
+
+QSlider::handle:vertical { 
+    background-color: #00007f;
+   	width: 20px;
+	height: 50px;
+	margin-top: 0px; 
+	margin-bottom: 0px;
+    border-radius: 10px;
+}
+
+QSlider{
+    background-color: rgb(234, 234, 234);
+    border-radius: 10px;
+}
+</string>
+    </property>
+    <property name="minimum">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <number>99</number>
+    </property>
+    <property name="pageStep">
+     <number>2</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="sliderPosition">
+     <number>0</number>
+    </property>
+    <property name="tracking">
+     <bool>true</bool>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <property name="invertedAppearance">
+     <bool>true</bool>
+    </property>
+    <property name="invertedControls">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="emptyFoldersNoticeLbl">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>40</y>
+      <width>341</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: grey;
+font-size: 24px;</string>
+    </property>
+    <property name="text">
+     <string>No hay carpetas guardadas</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="uploadBtn">
+    <property name="geometry">
+     <rect>
+      <x>385</x>
+      <y>0</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">	height: 40px;
+	border-radius: 20px;
+	border: 0px;
+	background-color: #8ac926;
+	color: #00007f;
+	font-weight: 500;
+	font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

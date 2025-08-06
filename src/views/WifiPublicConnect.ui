@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>272</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="lblOpacity">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>480</width>
+     <height>320</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="Widget2" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>65</x>
+     <y>51</y>
+     <width>351</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 20px;
+background-color: white;</string>
+   </property>
+   <widget class="QLabel" name="ssidLbl">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>311</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16px &quot;Poppins&quot;;
+background-color: transparent;
+font-weight: bold;
+</string>
+    </property>
+    <property name="text">
+     <string>titulo</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="connectBtn">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>120</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 500 18px &quot;Poppins&quot;;
+border-radius: 10px;
+border: 1px solid #00007f;
+background-color: white;
+color: #00007f;</string>
+    </property>
+    <property name="text">
+     <string>Conectar</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>311</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16px &quot;Poppins&quot;;
+background-color: transparent;
+</string>
+    </property>
+    <property name="text">
+     <string>Esta es una red pública y puede ser&lt;br&gt;insegura</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>272</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: white;
+font-family: Poppins;
+font-size:18px;
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QPushButton" name="backBtn">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>5</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 20px;
+border: 1px solid #00007f;
+background-color: white;
+color: #00007f;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>481</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QListView" name="originList">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>61</y>
+        <width>351</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;
+border-radius: 10px;</string>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>60</y>
+        <width>41</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:vertical{ 
+	background-color: rgb(234, 234, 234);
+	height: 191px;
+	border-radius: 20px;
+}
+
+QSlider::handle:vertical { 
+	background-color: #00007f;
+    height: 60;
+    width: 20px;
+    line-height: 10px; 
+	margin-top: 0px; 
+	margin-bottom: 0px;
+	border-radius: 20px; 
+}
+
+QSlider{
+	background-color: rgb(234, 234, 234);
+	border-radius: 20px;
+}
+
+</string>
+      </property>
+      <property name="pageStep">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="invertedAppearance">
+       <bool>true</bool>
+      </property>
+      <property name="invertedControls">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>20</y>
+        <width>221</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Seleccione una opción</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QWidget" name="widgetKeyboard" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>140</y>
+        <width>480</width>
+        <height>135</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(234, 234, 234);</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="inputOrigin">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>50</y>
+        <width>251</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(0, 0, 0);
+border-style: solid;
+border-width: 1px;
+border-radius: 6px;
+background-color: rgb(234, 234, 234);
+font-size: 14px;</string>
+      </property>
+      <property name="maxLength">
+       <number>50</number>
+      </property>
+      <property name="placeholderText">
+       <string>Otro origen...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>20</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Escriba el origen</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="confirmBtn">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>100</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 20px;
+background-color: #00007f;
+color: white;
+border: none;
+border-radius: 15px;
+font-size: 14px;</string>
+      </property>
+      <property name="text">
+       <string>Confirmar</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <zorder>stackedWidget</zorder>
+   <zorder>backBtn</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

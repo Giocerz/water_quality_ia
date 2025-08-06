@@ -1,0 +1,5 @@
+/env
+**/__pycache__/
+/src/config/sxdswe.py
+/appTEST2.py
+/water_quality.db

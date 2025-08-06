@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>272</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 14px Poppins;</string>
+  </property>
+  <widget class="QLabel" name="lblOpacity">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>480</width>
+     <height>320</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="Widget1" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>104</x>
+     <y>20</y>
+     <width>271</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 20px;
+background-color: white;</string>
+   </property>
+   <widget class="QPushButton" name="confirmBtn">
+    <property name="geometry">
+     <rect>
+      <x>85</x>
+      <y>170</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border: 1px solid #00007f;
+	background-color: white;
+	color: #00007f;
+	font-size: 14px;
+	font-family: Poppins;
+	font-weight: 500;
+}</string>
+    </property>
+    <property name="text">
+     <string>Confirmar</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="yesCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>50</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox {
+	background-color: transparent;
+	height: 10px;
+	font: 14px &quot;Poppins&quot;;
+}
+
+QCheckBox::indicator {
+    width: 20px; /* Ancho del indicador */
+    height: 20px; /* Alto del indicador */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 2px solid #666; /* Borde del indicador */
+}
+
+QCheckBox::indicator:checked {
+    background-color: #00007f; /* Color de fondo cuando está marcado */
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>Sí</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>171</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>¿Llovió recientemente?</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="noCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>90</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox {
+	background-color: transparent;
+	height: 10px;
+	font: 14px &quot;Poppins&quot;;
+}
+
+QCheckBox::indicator {
+    width: 20px; /* Ancho del indicador */
+    height: 20px; /* Alto del indicador */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 2px solid #666; /* Borde del indicador */
+}
+
+QCheckBox::indicator:checked {
+    background-color: #00007f; /* Color de fondo cuando está marcado */
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>No</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="idkCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>130</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox {
+	background-color: transparent;
+	height: 10px;
+	font: 14px &quot;Poppins&quot;;
+}
+
+QCheckBox::indicator {
+    width: 20px; /* Ancho del indicador */
+    height: 20px; /* Alto del indicador */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 2px solid #666; /* Borde del indicador */
+}
+
+QCheckBox::indicator:checked {
+    background-color: #00007f; /* Color de fondo cuando está marcado */
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>No lo sé</string>
+    </property>
+   </widget>
+   <zorder>yesCheckBox</zorder>
+   <zorder>confirmBtn</zorder>
+   <zorder>label</zorder>
+   <zorder>noCheckBox</zorder>
+   <zorder>idkCheckBox</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
