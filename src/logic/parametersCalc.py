@@ -116,3 +116,12 @@ class ParametersCalculate():
         compECsolution = solution*(1.0+0.0185*(temperature-25.0))
         kValueTemp = self.RES2*self.ECREF*compECsolution/1000.0/voltage; 
         return kValueTemp
+    
+    def convert_oxygen(self, oxygen, temperature):
+        if(oxygen == None):
+            return None
+        if temperature == None:
+            temperature = 25
+        if temperature >= 40:
+            temperature = 40
+        return oxygen / (self.DO_TABLE[int(temperature)] * 0.001) * 100

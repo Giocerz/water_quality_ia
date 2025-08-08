@@ -77,6 +77,7 @@ class MonitoringView(QMainWindow):
         self.init_stabilizers()
 
         self.predictor = ContaminationPredictor()
+        self.parameters_calc = ParametersCalculate()
 
         self.oxygen = AppConstants.MEASURE_OFF_VALUE
         self.ph = AppConstants.MEASURE_OFF_VALUE
@@ -359,7 +360,7 @@ class MonitoringView(QMainWindow):
             self.indicators['turbidity'].setStable(self.turbidity_is_stable)
 
         if self.predictor.is_ready() and self.ia_indicator != None:
-            result = self.predictor.predict(ph=7.1, od_percent=80.0, temp=25.0, ec=300.0)
+            result = self.predictor.predict(ph=self.ph, od_percent=self.parameters_calc.convert_oxygen(self.oxygen, self.temperature), temp=self.temperature, ec=self.tds * 2)
             self.ia_indicator.setValue(prediction=result['prediction'], prob=result['probability'], time=result['prediction_time_seconds'])
         self.battery = parameters[5]
     
