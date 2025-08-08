@@ -3,7 +3,7 @@ from PySide2.QtWidgets import QMainWindow, QVBoxLayout, QGridLayout, QSizePolicy
 from PySide2.QtCore import QSize, QThread, Signal, QPropertyAnimation, QSequentialAnimationGroup, QEasingCurve, QRect
 from PySide2.QtGui import QIcon
 from src.views.ui_Monitoring import Ui_MainWindow
-from src.widgets.ParametersIndicator import ParametersIndicator
+from src.widgets.ParametersIndicator import ParametersIndicator, IAIndicator
 from src.logic.AppConstans import AppConstants
 import time
 from w1thermsensor import W1ThermSensor
@@ -19,6 +19,7 @@ from src.views.MonitoringView.AutomaticMonitoringPopup import AutomaticMonitorin
 from src.views.MonitoringView.MonitoringOptionsPopup import MonitoringOptionsPopup
 from src.model.SensorData import SensorData
 from src.logic.sensorStabilizer import SensorStabilizer
+from src.logic.ContaminationPredictor import ContaminationPredictor
 
 class ParametersMeasuredWorker(QThread):
     parameters_result = Signal(list)
@@ -68,11 +69,14 @@ class MonitoringView(QMainWindow):
         self.oxygen_check:bool = oxygen_check
         self.turbidity_check:bool = turbidity_check
         self.ui = Ui_MainWindow()
+        self.ia_indicator = None
         self.ui.setupUi(self)
         self.ui_components()
         self.setup_grid()
         self.init_animation()
         self.init_stabilizers()
+
+        self.predictor = ContaminationPredictor()
 
         self.oxygen = AppConstants.MEASURE_OFF_VALUE
         self.ph = AppConstants.MEASURE_OFF_VALUE
@@ -305,6 +309,20 @@ class MonitoringView(QMainWindow):
             grid_layout.addWidget(self.indicators[param_key], row, col)
 
             pos += 1
+        
+        if all(param in self.parameters_keys for param in ["ph", "oxygen", "tds"]) and "turbidity" not in self.parameters_keys:
+            self.ia_indicator = IAIndicator()
+
+            recommended_size = self.ia_indicator.sizeHint()
+            self.ia_indicator.setMinimumSize(recommended_size)
+            self.ia_indicator.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+
+            row = pos // num_cols
+            col = pos % num_cols
+
+            grid_layout.setRowMinimumHeight(row, 70)
+            grid_layout.setColumnMinimumWidth(col, 240)
+            grid_layout.addWidget(self.ia_indicator, row, col)
 
         main_layout.addLayout(grid_layout)
 
@@ -340,7 +358,9 @@ class MonitoringView(QMainWindow):
             self.indicators['turbidity'].setValue(self.turbidity)
             self.indicators['turbidity'].setStable(self.turbidity_is_stable)
 
-        
+        if self.predictor.is_ready() and self.ia_indicator != None:
+            result = self.predictor.predict(ph=7.1, od_percent=80.0, temp=25.0, ec=300.0)
+            self.ia_indicator.setValue(prediction=result['prediction'], prob=result['probability'], time=result['prediction_time_seconds'])
         self.battery = parameters[5]
     
     #Automatic monitoring methods

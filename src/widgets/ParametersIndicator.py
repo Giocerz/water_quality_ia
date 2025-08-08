@@ -4,6 +4,7 @@ from PySide2.QtGui import QPixmap
 from src.views.ui_ParametersIndicator import Ui_Form as Ui_S
 from src.views.ui_ParametersIndicatorM import Ui_Form as Ui_M
 from src.views.ui_ParametersIndicatorL import Ui_Form as Ui_L
+from src.views.ui_IAIndicator import Ui_Form as UI_IA
 
 
 class ParametersIndicator(QWidget):
@@ -82,3 +83,15 @@ class ParametersIndicator(QWidget):
             self.ui.stableLbl.show()
         else:
             self.ui.stableLbl.hide()
+
+class IAIndicator(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = UI_IA()
+        self.ui.setupUi(self)
+
+    def setValue(self, prediction: int, prob: float, time: float):
+        color = 'red' if prediction == 1 else 'green'
+        response = 'Sí' if prediction == 1 else 'No'
+        self.ui.colorLbl.setStyleSheet(f"border: 4px solid {color};")
+        self.ui.probLbl.setText(f"{response} | Prob: {int(prob * 100)}% | {round(time * 1000)}ms")
