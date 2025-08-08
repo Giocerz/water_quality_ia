@@ -1,7 +1,7 @@
 import os
 import time
+import json
 import numpy as np
-import joblib
 
 try:
     import tflite_runtime.interpreter as tflite
@@ -9,8 +9,20 @@ except ImportError:
     tflite = None
     print("tflite_runtime is not installed. Prediction will not work.")
 
+
+def escalar_manual(x, params):
+    x = np.asarray(x, dtype=np.float32)
+    data_min = np.asarray(params["data_min_"], dtype=np.float32)
+    data_range = np.asarray(params["data_range_"], dtype=np.float32)
+    return (x - data_min) / data_range
+
+
 class ContaminationPredictor:
-    def __init__(self, scaler_path='./src/resources/ia_models/minmax_scaler_big.save', model_path='./src/resources/ia_models/model_big.tflite'):
+    def __init__(
+        self,
+        scaler_path='./src/resources/ia_models/minmax_scaler_big.json',
+        model_path='./src/resources/ia_models/model_big.tflite'
+    ):
         self.scaler = None
         self.interpreter = None
         self.input_index = None
@@ -24,9 +36,10 @@ class ContaminationPredictor:
 
     def _load_scaler(self):
         if os.path.exists(self.scaler_path):
-            self.scaler = joblib.load(self.scaler_path)
+            with open(self.scaler_path, 'r') as f:
+                self.scaler = json.load(f)
         else:
-            print(f"Scaler not found at: {self.scaler_path}")
+            print(f"Scaler JSON not found at: {self.scaler_path}")
 
     def _load_model(self):
         if os.path.exists(self.model_path):
@@ -74,7 +87,7 @@ class ContaminationPredictor:
         ]
 
         input_vector = np.array([[features[col] for col in columns]], dtype=np.float32)
-        scaled_input = self.scaler.transform(input_vector).astype(np.float32)
+        scaled_input = escalar_manual(input_vector, self.scaler).astype(np.float32)
 
         # Run inference and time it
         start = time.time()
