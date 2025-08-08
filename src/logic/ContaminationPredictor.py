@@ -10,7 +10,7 @@ except ImportError:
     print("tflite_runtime is not installed. Prediction will not work.")
 
 class ContaminationPredictor:
-    def __init__(self, scaler_path='./src/resoruces/ia_models/minmax_scaler_big.save', model_path='./src/resoruces/ia_models/model_big.tflite'):
+    def __init__(self, scaler_path='./src/resources/ia_models/minmax_scaler_big.save', model_path='./src/resources/ia_models/model_big.tflite'):
         self.scaler = None
         self.interpreter = None
         self.input_index = None
