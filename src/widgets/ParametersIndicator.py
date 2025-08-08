@@ -95,3 +95,6 @@ class IAIndicator(QWidget):
         response = 'Sí' if prediction == 1 else 'No'
         self.ui.colorLbl.setStyleSheet(f"border: 4px solid {color};")
         self.ui.probLbl.setText(f"{response} | Prob: {int(prob * 100)}% | {round(time * 1000)}ms")
+
+    def sizeHint(self):
+        return self.size()
